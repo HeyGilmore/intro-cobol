@@ -10,6 +10,7 @@
        01 TOTAL-SCORE    PIC 9(4).
        01 AVERAGE-SCORE  PIC 9(3).
        01 LETTER-GRADE   PIC 9(1).
+       01 MESSAGE01      PIC X(4)  VALUE "FAIL".
 
        PROCEDURE DIVISION.
            DISPLAY "Enter studen name: ".
@@ -33,10 +34,13 @@
            EVALUATE TRUE 
            WHEN AVERAGE-SCORE >= 90
                 MOVE "A" TO LETTER-GRADE 
+                MOVE "PASS" TO MESSAGE01
            WHEN AVERAGE-SCORE >= 80
-                MOVE "B" TO LETTER-GRADE 
+                MOVE "B" TO LETTER-GRADE
+                MOVE "PASS" TO MESSAGE01  
            WHEN AVERAGE-SCORE >= 70
-                MOVE "C" TO LETTER-GRADE 
+                MOVE "C" TO LETTER-GRADE
+                MOVE "PASS" TO MESSAGE01  
            WHEN AVERAGE-SCORE >= 60
                 MOVE "D" TO LETTER-GRADE 
            WHEN OTHER  
@@ -46,5 +50,6 @@
            DISPLAY "Student: " STUDENT-NAME.
            DISPLAY "Average score: " AVERAGE-SCORE.
            DISPLAY "Letter grade: " LETTER-GRADE.
+           DISPLAY "Status: " MESSAGE01.
 
            STOP RUN.
