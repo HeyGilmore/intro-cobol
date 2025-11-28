@@ -1,0 +1,119 @@
+# IBM Z Xplore – FILES1 Challenge Summary  
+
+**Date:** 2025-11-28  
+**Module:** How Data Gets Down on z/OS  
+**Platform:** IBM Z Xplore + VS Code (Zowe Explorer)
+
+---
+
+## 🚀 What I Learned Today
+
+Today I completed the **FILES1** challenge in the IBM Z Xplore program. This lab focused on how datasets work on z/OS, how they’re organized, and how to manipulate members using Zowe Explorer inside VS Code.
+
+This was my first hands-on experience with managing mainframe datasets outside of COBOL code — and it actually made a lot of things start clicking.
+
+---
+
+## 📂 Understanding z/OS Data Sets
+
+On z/OS, you don’t use “files and folders” the way you do on modern systems. Instead, you use:
+
+### 1. Sequential Data Sets (SEQDS)
+- A flat list of records (lines).
+- Ideal when data is always read top-to-bottom.
+- Editing is as simple as adding a new line.
+
+### 2. Partitioned Data Sets (PDS)
+- A dataset that contains **members** — kind of like files inside a folder.
+- Used when programs need to access specific pieces of data quickly.
+- Members can be:
+  - Renamed  
+  - Deleted  
+  - Copied  
+  - Created manually  
+
+In this challenge, I worked with both.
+
+
+---
+
+## 🛠️ Tasks Completed
+
+### ✅ 1. Updated my Zowe dataset filter
+Added my user prefix and the shared `ZXP.PUBLIC` prefix to see both my datasets and the public challenge datasets.
+
+### ✅ 2. Submitted the PDSBUILD job
+This built all the datasets required for the challenge:
+- `Zxxxxx.INPUT`
+- `Zxxxxx.SEQDS`
+- `SURPRISE` dataset members  
+- Templates inside `ZXP.PUBLIC.JCL`
+
+### ✅ 3. Viewed members inside PDS datasets
+Explored members in `INPUT` and located special instruction members that told me what to rename, delete, or copy.
+
+### ✅ 4. Renamed a dataset member
+Followed the instructions inside the member and used:
+- **Right-click → Rename Member**
+
+### ✅ 5. Deleted a dataset member
+Found the “delete me” member and used:
+- **Right-click → Delete Member**
+
+### ✅ 6. Copied a member from SURPRISE
+- Opened the member inside `SURPRISE`
+- Right-click → **Copy**
+- Right-click on `INPUT` → **Paste Member**
+- Gave it the same color name as the original
+
+This gave me **two color-named members**.
+
+### ✅ 7. Created a brand new member
+Created a member named:
+
+`MYNEWMBR`
+
+(no special characters, spaces, or punctuation)
+
+### ✅ 8. Added a record to the SEQDS dataset
+Opened my sequential dataset and added one new line:
+- A greeting  
+- Weather  
+- Favorite cartoon  
+
+Just something to mark my edit.
+
+### ✅ 9. Verified my work using CHKFILES
+Submitted the validation JCL:
+
+`ZXP.PUBLIC.JCL(CHKFILES)`
+
+Then checked the **JOBS** view for my completion code.
+
+### 🎉 Result: CC 0000
+This means everything was correct.
+
+---
+## 📘 Final INPUT Dataset Structure
+
+My `Zxxxxx.INPUT` PDS now contains:
+
+- 2 original members  
+- 1 renamed member  
+- 1 copied color member  
+- 1 newly created member (`MYNEWMBR`)  
+
+Total: **5 members**  
+And the “delete me” member is gone.
+
+---
+
+## 🧠 Key Takeaways
+
+- z/OS data sets work differently from normal files — understanding this structure is important for COBOL and JCL workflows.
+- Renaming, copying, deleting, and creating members are core skills you use constantly as a mainframe developer.
+- Sequential and partitioned datasets serve different performance purposes.
+- The z/OS job system (JES) returns completion codes like **CC 0000** to indicate success.
+- Zowe Explorer makes interacting with mainframe datasets much easier.
+
+---
