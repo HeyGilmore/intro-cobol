@@ -1,0 +1,38 @@
+# === COBOL / GnuCOBOL build files ===
+*.o
+*.so
+*.dll
+*.exe
+*.out
+*.gnt
+*.mod
+*.lst
+*.idc
+cobcache/
+
+# Executables created by `cobc -x program.cob`
+# (e.g., hello, math, calculator, calculator2, grades1, etc.)
+hello
+math
+math2
+calculator
+calculator2
+grades1
+paycheck1
+
+# If you start making lots of programs, you can also just ignore all files with no extension:
+# (uncomment this if you want that behavior)
+# *
+
+# But then explicitly allow source & docs:
+# !*.cob
+# !*.cbl
+# !*.cpy
+# !*.md
+
+# === macOS junk ===
+.DS_Store
+
+# === VS Code ===
+.vscode/
+.history/
