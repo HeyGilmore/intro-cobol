@@ -1,4 +1,8 @@
-# === COBOL / GnuCOBOL build files ===
+# ============================================
+#        COBOL / GnuCOBOL Project Ignore
+# ============================================
+
+# === GnuCOBOL build files ===
 *.o
 *.so
 *.dll
@@ -8,31 +12,27 @@
 *.mod
 *.lst
 *.idc
+*.cobc
 cobcache/
 
-# Executables created by `cobc -x program.cob`
-# (e.g., hello, math, calculator, calculator2, grades1, etc.)
-hello
-math
-math2
-calculator
-calculator2
-grades1
-paycheck1
+# === Compiled executables (no extension) ===
+# Any file with no extension created by `cobc -x`
+# This prevents compiled programs like `paycheck1`, `grades1`, etc. 
+# from being committed.
+# Rule: ignore any file in the root that has NO dot (.)
+*
+!*/
 
-# If you start making lots of programs, you can also just ignore all files with no extension:
-# (uncomment this if you want that behavior)
-# *
+# === Keep all meaningful source files ===
+!*.cob
+!*.cbl
+!*.cpy
+!*.md
+!*.txt
+!*.json
+!*.sh
+!*.bash
+!*.gitignore
 
-# But then explicitly allow source & docs:
-# !*.cob
-# !*.cbl
-# !*.cpy
-# !*.md
+# === ma
 
-# === macOS junk ===
-.DS_Store
-
-# === VS Code ===
-.vscode/
-.history/
